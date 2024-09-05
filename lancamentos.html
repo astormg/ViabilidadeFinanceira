@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/lancamentos.css">
+    <script src="/js/lancamentos.js"></script>
+    <script src="/js/telaLancamentos.js"></script>
+    <title>Lançamentos</title>
+</head>
+<body>
+    <div class="body">      
+        <div class="fixed-top">
+            <header class="card-header">
+                <h5>LANÇAMENTOS DE ENTRADA E SAÍDA - FLUXO DE CAIXA</h5>
+            </header>    
+        </div>
+
+        <div id="body-container">
+            <div id="menu-bar">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                        <ul class="navbar-nav mr-auto">
+                          <li class="nav-item active">
+                            <a class="nav-link" href="http://127.0.0.1:5500/inclusao.html">Incluir <span class="sr-only">(página atual)</span></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="http://127.0.0.1:5500/edicao.html">Editar</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="http://127.0.0.1:5500/dashboard.html">Voltar</a>
+                          </li>
+
+                        </ul>
+                    </div>
+                </nav>
+                <div class="calendar-date">
+                    <label for="">Filtrar por data? Selecione o período.</label>
+                    <div class="filter-date">
+                        <input type="date" name="date-graphicI" id="date-graphicI" title="Data Inicial do Gráfico">
+                        <strong>a</strong>
+                        <input type="date" name="date-graphicF" id="date-graphicF" title="Data Final do Gráfico">
+                    </div>
+                </div>
+                <div id="botao-filtrar"><input class="btn btn-outline-info btn-lg" type="button" value="Filtrar" onclick=ApresentarLançamentos()></div>
+        </div>
+                
+            <div id="menu-content">
+                <div id="content-table">
+                    <label for=""><strong>Lançamentos efetuados! Verifique os Filtros aplicados.</strong></label>
+                    <div class="table-wrapper">
+                        <table class="table table-striped table-hover" id="tbParaEdicao">
+                            <thead>
+                            <tr>
+                                <th scope="col">Cód</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Descrição / Histórico</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Natureza</th>
+                                <th scope="col">E/S</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbRegistros">
+                            </tbody>
+                        </table>
+                        <script>
+                            SelecionarRegistro();
+                        </script>
+                    </div>
+                    <input type="text" class="form-control" type="text" readonly id="SaldoFiltrado">
+                </div>
+            </div>
+        </div>
+            <div class="fixed-bottom">
+                <footer class="card-footer">
+                    <h6>TECNÓLOGO EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS - PUCMINAS - EAD</h6>
+                </footer>
+            </div>
+    </div> 
+    <script>
+        ApresentarLançamentos();
+    </script>              
+</body>
+</html>
